@@ -1,0 +1,19 @@
+---
+gateway:
+  environmentName: "production-us-west"
+  metadata:
+    name: "star.internal.acmefinancial.net"
+    displayName: "internal acmefinancial gateway"
+    description: "Internal gateway for service to service communication."
+  desiredState:
+    ingress:
+      uris:
+        "https://*.internal.acmefinancial.net": {}
+      tls:
+        certRef:
+          ref: "/services/environments/{{environmentName}}/certs/star.internal.acmefinancial.net"
+      placement:
+        instanceRefs:
+          - ref: "/infrastructure/locations/unspecified/instances/6"
+          - ref: "/infrastructure/locations/unspecified/instances/8"
+
