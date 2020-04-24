@@ -1,6 +1,5 @@
 ---
-gateway:
-  environmentName: "production-us-west"
+nginx_controller_gateway:
   metadata:
     name: "star.internal.acmefinancial.net"
     displayName: "internal acmefinancial gateway"
@@ -11,7 +10,7 @@ gateway:
         "https://*.internal.acmefinancial.net": {}
       tls:
         certRef:
-          ref: "/services/environments/{{environmentName}}/certs/star.internal.acmefinancial.net"
+          ref: "/services/environments/{{nginx_controller_environmentName}}/certs/star.internal.acmefinancial.net"
       placement:
         instanceRefs:
           - ref: "/infrastructure/locations/unspecified/instances/6"
